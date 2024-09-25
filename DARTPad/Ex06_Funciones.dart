@@ -11,7 +11,7 @@ void main() {
   print("En 3 dias estaremos a: ${(numeroDia+3)}");
 
 //3. Llamado de una funcion con parametros
-  print(greetSomeone("Mario"));
+  print(greetSomeone("Dulce"));
 //3.1 Y que pasa si intentamos?
   print(greetSomeone(45));
   print(greetSomeone(-15));
@@ -22,18 +22,18 @@ void main() {
   print(greetSomeone(45));
   print(greetSomeone(-15));
   print(greetSomeone(true));*/
-  print(greetSomeoneTyped("Mario Gutierrez Rosales"));
+  print(greetSomeoneTyped("Dulce Esmeralda Hernandez juarez"));
   
   //4. Llamado de Funcion con varios parametros posicionales.
   //Para este caso los parametros deben ser enviados en la posicion exacta y segun DART ambos por defecto son obligatorios
-  print(greetSomeoneHourOfDay("Mariox", 22));
+  print(greetSomeoneHourOfDay("Dulce", 22));
   // Que pasa si solo envio un parametro?
-  //print(greetSomeoneHourOfDay("Marco-Chetos"));
+  //print(greetSomeoneHourOfDay("Dulce-Lore"));
   //print(greetSomeoneHourOfDay(10));
   //print(greetSomeoneHourOfDay(nulll,null));
   /*Analizando la funcion determinamos que la hora del dia puede ser nulo, y se puede definir con la hora actual del dia*/
-  print(greetSomeoneHourOfDay("Marinho",null));
-  print(greetSomeoneHourOfDay("MGR"));
+  print(greetSomeoneHourOfDay("Dulce",null));
+  print(greetSomeoneHourOfDay("DEHJ"));
 
 //5. FUNCIONES LAMBDA, ARROW FUNCIONES FLECHA
   // Las funciones lambda, tambien conocidas como funciones anonimas o funciones flecha, se ejecutan de manera simple y no frecuente en la ejecucion de un programa o sistema, en DART estas funciones solo pueden tener una sola instruccion para usar el operador =>
@@ -52,12 +52,12 @@ void main() {
   
   
   // 6. Llamado de una funcion con parametros nombrados
-  print(infoCartLisStatus(buyerName: "Gabriel"));
+  print(infoCartLisStatus(buyerName: "Gabriela"));
   
   // 6.1 Llamado de una funcion con los paremetros en desorden posicional
   print(infoCartLisStatus(status: "En espera de Pago",
                          amountCarList: 505.00,
-                         buyerName: "Luis Mario"));
+                         buyerName: "Dulce Esmeralda"));
 }
 
 //1. FUNCIONES SIN PARAMETROS Y SIN RETORNO DE VALOR
