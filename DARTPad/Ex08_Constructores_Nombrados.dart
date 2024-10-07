@@ -21,22 +21,15 @@ void main() {
   print(CarlosGarrido);
 
   // CASO DE PRUEBA 02 -- ENVIANDO SOLO LOS DATOS REQUERIDOS (OBLIGATORIOS)
-  final Dulce = Person(
+  final marioGutro = Person(
     ID: 125,
-
     name: "Dulce",
     firstLastname: "Hernandez",
     gender: "Mujer",
     bloodGroup: "O+",
     birthdate: DateTime(2002, 09, 30),
-
-
   );
-  print(Dulce);
-
-
-
-
+  print(marioGutro);
 }
 
 class Person {
@@ -71,6 +64,7 @@ class Person {
       this.updatedAt
     })
     : createdAt=createdAt ?? DateTime.now();
+
   @override
   String toString(){
     final String formatedBirthDate =
@@ -79,8 +73,8 @@ class Person {
 
     final String formatedCreatedDate =
       "${createdAt.day.toString().padLeft(2, '0')}/" +
-        "${createdAt.month.toString().padLeft(2, '0')}/${createdAt.year}${createdAt.hour.toString().padLeft(2,'0')}:${createdAt.minute.toString().padLeft(2,
-            '0')}:${createdAt.second.toString().padLeft(2,'0')}";
+          "${createdAt.month.toString().padLeft(2, '0')}/${createdAt.year}${createdAt.hour.toString().padLeft(2,'0')}:${createdAt.minute.toString().padLeft(2,
+'0')}:${createdAt.second.toString().padLeft(2,'0')}";
     curp ??= "No registrdo";
     if (curp == "") curp = "No registrado";
 
@@ -105,6 +99,5 @@ class Person {
     Fecha de registro: $formatedCreatedDate
     --------------------------------------------------------
     """;
-
   }
 }
