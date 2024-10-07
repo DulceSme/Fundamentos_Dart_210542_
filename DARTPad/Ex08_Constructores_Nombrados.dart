@@ -21,7 +21,7 @@ void main() {
   print(CarlosGarrido);
 
   // CASO DE PRUEBA 02 -- ENVIANDO SOLO LOS DATOS REQUERIDOS (OBLIGATORIOS)
-  final marioGutro = Person(
+  final dulce = Person(
     ID: 125,
     name: "Dulce",
     firstLastname: "Hernandez",
@@ -29,7 +29,7 @@ void main() {
     bloodGroup: "O+",
     birthdate: DateTime(2002, 09, 30),
   );
-  print(marioGutro);
+  print(dulce);
 }
 
 class Person {
