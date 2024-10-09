@@ -79,7 +79,5 @@ void main() {
   palomaRosada.correr(30);
   palomaRosada.saltar(false);
   palomaRosada.trotar(false);
-
-  
   
 }
