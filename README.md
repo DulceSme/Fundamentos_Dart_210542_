@@ -13,14 +13,15 @@ Proyecto de clase para la unidad 1 de la asignatura de Desarrollo Móvil Integra
 |5|Tipos De Dato Dinamico|5|Finalizada|
 |6|Mapas|6|Finalizada|
 |7|Listas de Conjuntos Iterables|9|Finalizada|
-|8|Funciones y Parametros|11|Activa|
-|9|Clases|9|Activa|
-|10|Constructores Nombrados|8|Activa|
-|11|Setters y Getters|9|Activa|
-|12|Aserciones|3|Activa|
-|13|Clases abstractas|11|Activa|
-|14|Mixins|11|Activa|
+|8|Funciones y Parametros|11|Finalizada|
+|9|Clases|9|Finalizada|
+|10|Constructores Nombrados|8|Finalizada|
+|11|Setters y Getters|9|Finalizada|
+|12|Aserciones|3|Finalizada|
+|13|Clases abstractas|11|Finalizada|
+|14|Mixins|11|Finalizada|
 |15|Futures|11|Activa|
+|16|Async Await|PENDIENTE|Activa|
 |00|Examen|10|Activa|
 
 ## LISTA DE HERRAMIENTAS
