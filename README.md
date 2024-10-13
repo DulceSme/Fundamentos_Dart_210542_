@@ -22,6 +22,7 @@ Proyecto de clase para la unidad 1 de la asignatura de Desarrollo Móvil Integra
 |14|Mixins|11|Finalizada|
 |15|Futures|11|Activa|
 |16|Async Await|PENDIENTE|Activa|
+|17|Try catch on finally|PENDIENTE|Activa|
 |00|Examen|10|Activa|
 
 ## LISTA DE HERRAMIENTAS
