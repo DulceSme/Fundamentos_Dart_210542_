@@ -24,6 +24,7 @@ Proyecto de clase para la unidad 1 de la asignatura de Desarrollo Móvil Integra
 |16|Async Await|PENDIENTE|Activa|
 |17|Try catch on finally|PENDIENTE|Activa|
 |18|Streams|PENDIENTE|Activa|
+|19|Streams await|PENDIENTE|Activa|
 |00|Examen|10|Activa|
 
 ## LISTA DE HERRAMIENTAS
