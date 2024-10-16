@@ -1,152 +1,173 @@
 void main() {
-  // CASO DE PRUEBA 1 --  NUEVO MIEMBRO QUE SE REGISTRA HOY
+  // CASO DE PRUEBA 1 -- NUEVO MIEMBRO QUE SE REGISTRA HOY
   final miembro1 = Miembro(
     ID: 101,
-    cortesyTitle: "Sr.",
-    name: "Carlos",
-    firstLastname: "Garrido",
-    secondLastname: "Martínez",
-    gender: "Hombre",
-    membershipType: "Premium",
-    startDate: DateTime.now(), // Registrado hoy
-    usuarioID: 1,
-    estatus: "Activo", 
+    tituloCortesia: "Sra.", // Título de cortesía
+    nombre: "Dulce", // Nombre del miembro
+    primerApellido: "Hernández", // Primer apellido del miembro
+    segundoApellido: "Juarez", // Segundo apellido del miembro
+    fechaNacimiento: DateTime(1995, 07, 15), // Fecha de nacimiento
+    fotografia: "url/foto.jpg", // URL de la fotografía
+    genero: "F", // Género
+    tipoSangre: "O+", // Tipo de sangre
+    membresiaID: 1, // ID de la membresía
+    usuarioID: 1, // ID del usuario
+    tipoMembresia: "Frecuente", // Tipo de membresía
   );
-  print(miembro1);
+  print(miembro1); // Imprime la información del nuevo miembro
 
   // CASO DE PRUEBA 2 -- MIEMBRO QUE FUE TRABAJADOR DEL GIMNASIO
   final miembro2 = Miembro(
     ID: 102,
-    cortesyTitle: "Sra.",
-    name: "Ana",
-    firstLastname: "López",
-    secondLastname: "Ramírez",
-    gender: "Mujer",
-    membershipType: "Básica",
-    startDate: DateTime(2022, 05, 10), // Registrada anteriormente
-    usuarioID: 2,
-    estatus: "Activo", // Cambiado a "Activo"
+    tituloCortesia: "Sra.", // Título de cortesía
+    nombre: "Alondra", // Nombre del miembro
+    primerApellido: "Ojeda", // Primer apellido del miembro
+    segundoApellido: "Castro", // Segundo apellido del miembro
+    fechaNacimiento: DateTime(1985, 05, 10), // Fecha de nacimiento
+    fotografia: "url/foto2.jpg", // URL de la fotografía
+    genero: "F", // Género
+    tipoSangre: "A+", // Tipo de sangre
+    membresiaID: 2, // ID de la membresía
+    usuarioID: 2, // ID del usuario
+    tipoMembresia: "Ocasional", // Tipo de membresía
   );
-  print(miembro2);
+  print(miembro2); // Imprime la información del miembro que fue trabajador
 
   // CASO DE PRUEBA 3 -- CANCELANDO LA MEMBRESÍA DE UN MIEMBRO
   print("Cancelando la membresía del miembro 1:");
-  miembro1.cancelaSuscripcion();
-  print(miembro1);
+  miembro1.cancelaSuscripcion(); // Cancela la suscripción del miembro 1
+  print(miembro1); // Imprime la información actualizada del miembro 1
 }
 
 // Definición de la Clase Abstracta <Persona>
 abstract class Persona {
-  int ID;
-  String name;
-  String firstLastname;
-  String? secondLastname;
-  String gender;
+  int ID; // Identificador único
+  String? tituloCortesia; // Título de cortesía
+  String nombre; // Nombre
+  String primerApellido; // Primer apellido
+  String segundoApellido; // Segundo apellido
+  DateTime fechaNacimiento; // Fecha de nacimiento
+  String? fotografia; // URL de la fotografía
+  String genero; // Género ('M', 'F', 'N/B')
+  String tipoSangre; // Tipo de sangre ('A+', 'A-', etc.)
+  DateTime fechaRegistro; // Fecha de registro
+  DateTime? fechaActualizacion; // Fecha de última actualización
 
+  // Constructor de la clase Persona
   Persona({
     required this.ID,
-    required this.name,
-    required this.firstLastname,
-    this.secondLastname,
-    required this.gender,
-  });
+    this.tituloCortesia,
+    required this.nombre,
+    required this.primerApellido,
+    required this.segundoApellido,
+    required this.fechaNacimiento,
+    this.fotografia,
+    required this.genero,
+    required this.tipoSangre,
+    DateTime? fechaRegistro,
+    DateTime? fechaActualizacion,
+  })  : fechaRegistro = fechaRegistro ?? DateTime.now(), // Inicializa la fecha de registro
+        fechaActualizacion = fechaActualizacion; // Inicializa la fecha de actualización
 
   // Definición de la Función de la Clase
-  void cancelaSuscripcion();
+  void cancelaSuscripcion(); // Método abstracto para cancelar la suscripción
 }
 
 // Declaración de la Clase <Miembro> que extiende de <Persona>
 class Miembro extends Persona {
-  String? cortesyTitle;
-  String membershipType;
-  DateTime startDate;
-  bool isActive;
-  DateTime createdAt;
-  DateTime? updatedAt;
-  int usuarioID; 
-  String estatus; 
-  int antiguedad; // Antigüedad en meses
+  int membresiaID; // ID de la membresía
+  int usuarioID; // ID del usuario
+  String tipoMembresia; // Tipo de membresía ('Frecuente', 'Ocasional', etc.)
+  String antiguedad; // Antigüedad en meses
+  bool estatus; // Activo/Inactivo
 
   // Sobreescritura de las Propiedades de la Clase Abstracta <Persona>
   Miembro({
     required int ID,
-    this.cortesyTitle,
-    required String name,
-    required String firstLastname,
-    String? secondLastname,
-    required String gender,
-    required this.membershipType,
-    required this.startDate,
-    this.isActive = true,
-    DateTime? createdAt,
-    DateTime? updatedAt,
+    String? tituloCortesia,
+    required String nombre,
+    required String primerApellido,
+    required String segundoApellido,
+    required DateTime fechaNacimiento,
+    String? fotografia,
+    required String genero,
+    required String tipoSangre,
+    required this.membresiaID,
     required this.usuarioID,
-    this.estatus = "Activo",
-  })  : createdAt = createdAt ?? DateTime.now(),
-        updatedAt = updatedAt,
-        antiguedad = DateTime.now().difference(startDate).inDays ~/ 30, // Calcula antigüedad en meses
+    required this.tipoMembresia,
+    this.estatus = true, // Activo por defecto
+    DateTime? fechaRegistro,
+    DateTime? fechaActualizacion,
+  })  : antiguedad = "${DateTime.now().difference(fechaRegistro ?? DateTime.now()).inDays ~/ 30} meses", // Calcula antigüedad en meses
         super(
           ID: ID,
-          name: name,
-          firstLastname: firstLastname,
-          secondLastname: secondLastname,
-          gender: gender,
+          tituloCortesia: tituloCortesia,
+          nombre: nombre,
+          primerApellido: primerApellido,
+          segundoApellido: segundoApellido,
+          fechaNacimiento: fechaNacimiento,
+          fotografia: fotografia,
+          genero: genero,
+          tipoSangre: tipoSangre,
+          fechaRegistro: fechaRegistro,
+          fechaActualizacion: fechaActualizacion,
         );
 
   // Métodos CRUD
 
-  // Crear: Ya se maneja mediante el constructor de la clase
   // Leer: Muestra la información del miembro
   void leer() {
-    print(this);
+    print(this); // Imprime la información del miembro
   }
 
   // Actualizar: Modifica el tipo de membresía
   void actualizar(String nuevaMembresia) {
-    membershipType = nuevaMembresia;
-    updatedAt = DateTime.now();
-    print("Membresía actualizada a: $membershipType");
+    tipoMembresia = nuevaMembresia; // Actualiza el tipo de membresía
+    fechaActualizacion = DateTime.now(); // Actualiza la fecha de modificación
+    print("Membresía actualizada a: $tipoMembresia"); // Mensaje de confirmación
   }
 
-  // Eliminar: Cambia el estado a inactivo 
+  // Eliminar: Cambia el estado a inactivo
   void eliminar() {
-    isActive = false;
-    updatedAt = DateTime.now();
-    print("Miembro eliminado: $name $firstLastname.");
+    estatus = false; // Cambia el estado a inactivo
+    fechaActualizacion = DateTime.now(); // Actualiza la fecha de modificación
+    print("Miembro eliminado: $nombre $primerApellido."); // Mensaje de confirmación
   }
 
   // Sobreescritura de la Función cancelaSuscripcion()
   @override
   void cancelaSuscripcion() {
-    isActive = false;
-    updatedAt = DateTime.now();
-    estatus = "Inactivo"; // Cambia el estatus a inactivo
-    print("La suscripción ha sido cancelada para $name $firstLastname.");
+    estatus = false; // Cambia el estado a inactivo
+    fechaActualizacion = DateTime.now(); // Actualiza la fecha de modificación
+    print("La suscripción ha sido cancelada para $nombre $primerApellido."); // Mensaje de confirmación
   }
 
   @override
   String toString() {
-    final String formattedStartDate =
-        "${startDate.day.toString().padLeft(2, '0')}/" +
-            "${startDate.month.toString().padLeft(2, '0')}/${startDate.year}";
+    // Formato de la fecha de nacimiento
+    final String formattedFechaNacimiento =
+        "${fechaNacimiento.day.toString().padLeft(2, '0')}/" +
+            "${fechaNacimiento.month.toString().padLeft(2, '0')}/${fechaNacimiento.year}";
 
-    final String formattedCreatedDate =
-        "${createdAt.day.toString().padLeft(2, '0')}/" +
-            "${createdAt.month.toString().padLeft(2, '0')}/${createdAt.year} " +
-            "${createdAt.hour.toString().padLeft(2, '0')}:${createdAt.minute.toString().padLeft(2, '0')}";
+    // Formato de la fecha de registro
+    final String formattedFechaRegistro =
+        "${fechaRegistro.day.toString().padLeft(2, '0')}/" +
+            "${fechaRegistro.month.toString().padLeft(2, '0')}/${fechaRegistro.year} " +
+            "${fechaRegistro.hour.toString().padLeft(2, '0')}:${fechaRegistro.minute.toString().padLeft(2, '0')}";
 
+    // Retorna la representación del objeto en forma de string
     return """
     --------------------------------------------------------
     DATOS DEL MIEMBRO
     --------------------------------------------------------
     ID: $ID
-    Nombre: ${cortesyTitle ?? ''} $name $firstLastname ${secondLastname ?? ''}
-    Género: $gender
-    Tipo de membresía: $membershipType
-    Fecha de inicio: $formattedStartDate
-    Estatus: $estatus
-    Antigüedad: $antiguedad meses
-    Fecha de registro: $formattedCreatedDate
+    Nombre: $nombre $primerApellido $segundoApellido
+    Género: $genero
+    Tipo de membresía: $tipoMembresia
+    Fecha de nacimiento: $formattedFechaNacimiento
+    Antigüedad: $antiguedad
+    Fecha de registro: $formattedFechaRegistro
+    Estatus: ${estatus ? 'Activo' : 'Inactivo'}
     --------------------------------------------------------
     """;
   }
